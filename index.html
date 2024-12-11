@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./src/css/style.css">
+  <script src="./src/js/script.js"></script>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <title>Spotify</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="containers">
+      <div class="izquierda">
+        <div class="filtros">
+          <div class="colores">
+            <div class="red"></div>
+            <div class="yellow"></div>
+            <div class="green"></div>
+          </div>
+          <div class="filtro-dropdown">
+            <div class="filtro-selected"><box-icon class="flechaFiltros" name='down-arrow' type='solid'
+                color='#ffffff'></box-icon> Filtros
+            </div>
+            <div class="filtro-options">
+              <div class="filtro-option" data-value="Todos">Todos</div>
+              <div class="filtro-option" data-value="Favoritos">Favoritos</div>
+            </div>
+          </div>
+        </div>
+        <div class="imagen"></div>
+      </div>
+
+      <div class="derecha">
+        <div class="arriba">
+          <div class="buscar-music">
+            <div class="search-container">
+              <box-icon name='search-alt' color='#171717' class="search-icon"></box-icon>
+              <input type="search" id="searchInput" class="search-input" placeholder="Search">
+            </div>
+            <h1>Music</h1>
+          </div>
+          <div class="logo-mas">
+            <div class="usuario">
+              <img class="logo" src="./src/img/logo.png" alt="Logo">
+              <h3>Juanma</h3>
+            </div>
+            <div class="buttonPause-add">
+              <button class="pause">PAUSE</button>
+              <box-icon id="showFormIcon" name='add-to-queue' type='solid' color='#ffffff'></box-icon>
+            </div>
+          </div>
+        </div>
+        <div class="abajo">
+          <table>
+            <thead>
+              <tr>
+                <th></th> <!-- Columna para el botón -->
+                <th>TITULO</th>
+                <th>ARTISTA</th>
+                <th><box-icon name="time-five" color="#a8a8a8"></box-icon></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="musicTable">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="play">
+      <div class="cancion">
+        <p id="selected-song-title"></p>
+        <p id="selected-artist"></p>
+      </div>
+
+      <div class="botones">
+        <div class="iconos">
+          <box-icon name='repeat' color='#ffffff' size='30px'></box-icon>
+          <box-icon name='skip-previous' color='#ffffff' size='30px'></box-icon>
+          <box-icon name='play-circle' color='#ffffff' size='40px'></box-icon>
+          <box-icon name='skip-next' color='#ffffff' size='30px'></box-icon>
+          <box-icon name='shuffle' color='#ffffff' size='25px'></box-icon>
+        </div>
+        <div class="progress-container">
+          <span class="time">0:00</span>
+          <input type="range" class="progress" id="progress" value="0" min="0" max="100">
+          <span class="time">0:00</span>
+        </div>
+      </div>
+
+      <div class="sonido">
+        <div class="volume-container">
+          <box-icon id="volumeIcon" name='volume-low' type='solid' color='#ffffff'></box-icon>
+          <input type="range" class="volume" id="volume" value="50" min="0" max="100">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-container oculto" id="uploadModal">
+    <div class="modal-content">
+      <box-icon id="closeFormIcon" name='x' color='#1db954' size='40px'></box-icon>
+      <form id="uploadForm" method="POST" enctype="multipart/form-data">
+        <div class="input-group">
+          <label for="musica">Añadir nueva canción</label>
+          <input type="file" id="musica" name="music" accept=".mp3" required>
+        </div>
+        <div class="input-group">
+          <label for="titulo">Título</label>
+          <input type="text" id="titulo" name="title" maxlength="20" required>
+        </div>
+        <div class="input-group">
+          <label for="autor">Autor</label>
+          <input type="text" id="autor" name="artist" maxlength="20" required>
+        </div>
+        <div class="input-group">
+          <label for="portada">Imagen de portada</label>
+          <input type="file" id="portada" name="cover" accept=".png, .jpg" required>
+        </div>
+        <button class="subirCancion" type="submit" value="Subir">Subir</button>
+      </form>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
