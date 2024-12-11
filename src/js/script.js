@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let favorites = getFavoritesFromLocalStorage();
 
+  //actualizarPlayPauseState
   const updatePlayPauseState = () => {
     if (isPlaying) {
       playPauseButton.setAttribute("name", "pause-circle");
@@ -50,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  //manejarReproducirPausa
   const handlePlayPause = () => {
     if (currentAudio) {
       if (isPlaying) {
@@ -62,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  //enlazarReproducirPausaEventos
   const bindPlayPauseEvents = (element) => {
     element.addEventListener("click", (event) => {
       event.stopPropagation();
@@ -172,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
     isRepeat = !isRepeat;
 
     if (isRepeat) {
-      isShuffle = false; // Desactivar shuffle si repeat está activo
+      isShuffle = false; // Desactivo shuffle si repeat está activo
       shuffleButton.setAttribute("color", "#ffffff");
       shuffleButton.style.fill = "#ffffff";
     }
@@ -185,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
     isShuffle = !isShuffle;
 
     if (isShuffle) {
-      isRepeat = false; // Desactivar repeat si shuffle está activo
+      isRepeat = false; // Desactivo repeat si shuffle está activo
       repeatButton.setAttribute("color", "#ffffff");
       repeatButton.style.fill = "#ffffff";
     }
@@ -458,7 +461,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok) {
         const songs = await response.json();
         console.log("Canciones cargadas:", songs);
-        // Aquí puedes actualizar la tabla o lista de canciones, por ejemplo:
         actualizarListaCanciones(songs);
       } else {
         console.error("Error al cargar las canciones:", response.statusText);
@@ -470,7 +472,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Función para actualizar la tabla o lista de canciones
   const actualizarListaCanciones = (songs) => {
-    const songList = document.getElementById("songList"); // Asegúrate de tener un contenedor con este ID
+    const songList = document.getElementById("songList"); 
     songList.innerHTML = ""; // Limpiar lista previa
     songs.forEach((song) => {
       const listItem = document.createElement("li");
