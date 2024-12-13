@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const apiUrl = "http://informatica.iesalbarregas.com:7007/songs";
+  const apiUrl = "http://informatica.iesalbarregas.com:7008/songs";
   const selectedSongTitle = document.getElementById("selected-song-title");
   const selectedArtist = document.getElementById("selected-artist");
   const playPauseButton = document.querySelector(
@@ -423,7 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     const formData = new FormData(uploadForm);
-    const apiUrl = "http://informatica.iesalbarregas.com:7007/upload";
+    const apiUrl = "http://informatica.iesalbarregas.com:7008/upload";
 
     try {
       const response = await fetch(apiUrl, {
@@ -456,7 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cargarCanciones = async () => {
     try {
       const response = await fetch(
-        "http://informatica.iesalbarregas.com:7007/songs"
+        "http://informatica.iesalbarregas.com:7008/songs"
       );
       if (response.ok) {
         const songs = await response.json();
